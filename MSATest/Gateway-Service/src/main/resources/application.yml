@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: apigateway-service
+    name: gateway-service
   cloud:
     gateway:
       default-filters:
@@ -13,9 +13,9 @@ spring:
             preLogger: true
             postLogger: true
 
-#eureka:
-#  client:
-#    register-with-eureka: true
-#    fetch-registry: true
-#    service-url:
-#      defaultZone: http://localhost:8787/eureka
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8787/eureka
