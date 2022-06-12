@@ -1,4 +1,5 @@
 rootProject.name = 'msatest'
 include 'Eureka'
 include 'APIGateway'
+include 'Member'
 
