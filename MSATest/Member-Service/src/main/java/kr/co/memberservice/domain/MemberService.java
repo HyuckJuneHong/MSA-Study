@@ -24,8 +24,8 @@ public class MemberService {
 
         MemberEntity memberEntity = memberRepository.findByIdentity(login.getIdentity());
 
-        if(login.getPassword().equals(memberEntity.getIdentity())){
-            return memberEntity.getName() + "로그인 성공";
+        if(login.getPassword().equals(memberEntity.getPassword())){
+            return memberEntity.getName() + " 로그인 성공";
         }else{
             return "로그인 실패";
         }

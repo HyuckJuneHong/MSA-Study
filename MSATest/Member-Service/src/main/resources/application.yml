@@ -2,7 +2,7 @@
 #  0?? ?? ? ??? member-service:0 ???? ??? ??? ?????? ????.
 #  ?, ?? ??? ???? ?? ????? ??? ? ?? ???? ID? ??? ?? ?? ????.
 server:
-  port: 0
+  port: 8001
 
 eureka:
   client:
@@ -10,9 +10,8 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}}
-
+#  instance:
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}}
 
 spring:
   application:
@@ -31,3 +30,7 @@ spring:
     generate-ddl: true
     properties:
       format_sql: true
+
+logging:
+  level:
+    kr.co.memberservice: DEBUG

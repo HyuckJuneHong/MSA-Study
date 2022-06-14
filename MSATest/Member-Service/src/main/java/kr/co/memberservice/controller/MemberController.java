@@ -6,13 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/actuator/info")  //gateway routing을 위해
+@RequestMapping("/actuator/info/member")  //gateway routing을 위해
 @RequiredArgsConstructor
 public class MemberController {
 
     private final MemberService memberService;
 
-    @GetMapping("/member")
+    @GetMapping()
     public String test(){
         return "member-test";
     }
