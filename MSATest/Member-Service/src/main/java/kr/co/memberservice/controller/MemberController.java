@@ -12,7 +12,12 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @GetMapping("/signUp")
+    @GetMapping("/test")
+    public String test(){
+        return "member-test";
+    }
+
+    @PostMapping("/signUp")
     public String signUp(@RequestBody MemberDto.CREATE create) {
         memberService.signUp(create);
         return create.getName() + "님 회원가입 축하드립니다.";
