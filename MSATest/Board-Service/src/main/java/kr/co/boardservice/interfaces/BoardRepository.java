@@ -1,4 +1,4 @@
-package kr.co.boardservice.repository;
+package kr.co.boardservice.interfaces;
 
 import kr.co.boardservice.domain.BoardEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
