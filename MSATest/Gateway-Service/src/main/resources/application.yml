@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    prefer-ip-address: true         #Discovery? ??? ??? ?? ? IP Address? ??
+    prefer-ip-address: true         #Discovery에 등록 서비스 클릭 시 IP Address로 이동
   client:
     register-with-eureka: true
     fetch-registry: true
@@ -14,17 +14,25 @@ spring:
   application:
     name: gateway-service
   cloud:
-    gateway:                                  #gateway ?? ???? ??? ??
+    gateway:                                  #gateway 통해 진입하는 서비스 등록
       default-filters:
-        - name: GlobalFilter                  #?? ???? ?? ???? ?? ??
-          args:                               #args? ?? ?? ?? ???? ??
+        - name: GlobalFilter                  #모든 서비스에 대해 적용하는 필터명
+          args:                               #args를 통해 해당 값이 무엇인지 설정
             baseMessage: Hello Spring Cloud Gateway Global Filter
             preLogger: true
             postLogger: true
-      routes:                                 #??? ??
-        - id: member-service                  #?????? ??
-          uri: http://127.0.0.1:8001/         #?????? ?? ??
+      routes:                                 #라우팅 설정
+        - id: member-service                  #애플리케이션 이름
+          uri: http://127.0.0.1:8001/         #애플리케이션 진입 주소
           predicates:
-            - Path=/actuator/info/member/**   #?? ???
-          filters:                            #?? ??
+            - Path=/actuator/info/member/**   #조건 분기문
+          filters:                            #필터 설정
             - CustomFilter
+        - id: board-service
+          uri: http://127.0.0.1:8002/
+          predicates:
+            - Path=/actuator/info/board/**
+
+logging:
+  level:
+    kr.co.gatewayservice: DEBUG

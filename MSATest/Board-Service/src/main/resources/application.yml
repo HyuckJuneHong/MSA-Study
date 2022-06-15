@@ -1,19 +1,19 @@
 server:
-  port: 8001
+  port: 8002
 
 eureka:
   client:
-    register-with-eureka: true  #유레카 서버에 정보 등록
+    register-with-eureka: true  #??? ??? ?? ??
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
 
 spring:
   application:
-    name: member-service
+    name: board-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/member_service_db?verifyServerCertificate=false&useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/board_service_db?verifyServerCertificate=false&useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
     username: root
     password: password
 
@@ -28,4 +28,4 @@ spring:
 
 logging:
   level:
-    kr.co.memberservice: DEBUG
+    kr.co.boardservice: DEBUG
